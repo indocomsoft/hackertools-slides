@@ -1,0 +1,122 @@
+\documentclass[12pt]{beamer}
+
+
+\usetheme[sectionpage=none, subsectionpage=progressbar, progressbar=foot, numbering=fraction]{metropolis}
+
+\makeatletter
+\setlength{\metropolis@frametitle@padding}{1.6ex}% <- default 2.2 ex
+
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\textwidth, sep=1.5ex]{footline}% <- default 3ex
+    \usebeamerfont{page number in head/foot}%
+    \usebeamertemplate*{frame footer}
+    \hfill%
+    \usebeamertemplate*{frame numbering}
+  \end{beamercolorbox}%
+}
+\makeatother
+
+\AtBeginSubsection
+{
+  \begin{frame}{Where are we?}
+    \tableofcontents[sectionstyle=show/shaded, subsectionstyle=show/shaded/hide]
+  \end{frame}
+}
+
+\makeatletter
+\setbeamertemplate{headline}{
+  \begin{beamercolorbox}{upper separation line head}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}{section in head/foot}
+    \vskip2pt\insertsectionnavigationhorizontal{\paperwidth}{}{}\vskip2pt
+  \end{beamercolorbox}
+  \begin{beamercolorbox}{lower separation line head}
+  \end{beamercolorbox}
+}
+\makeatother
+\setbeamercolor{section in head/foot}{fg=normal text.bg, bg=structure.fg}
+
+\setbeamertemplate{itemize items}[square]
+
+
+\usepackage[UTF8]{ctex}
+\usepackage{tabularx}
+
+
+\title{Hacker Tools: \\Course Overview, Linux Install Fest, Virtual Machines}
+\author{Julius Putra Tanu Setiaji}
+\date{3 September 2019}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\section{Introduction}
+\subsection{}
+
+\begin{frame}{NUS Hackers}
+
+  \begin{center}
+    \includegraphics[width=0.5\linewidth]{../NUSHackers}
+
+    \url{http://nushackers.org}
+  \end{center}
+
+  \begin{center}
+    \textbf{hacker}school
+
+    Friday \textbf{Hacks}
+
+    \textbf{Hack} \& Roll
+
+    \textbf{Hacker} Tools
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{Hacker Tools}
+  Inspired by \url{https://hacker-tools.github.io/}
+
+  Learn to make the most of the tools that hackers\footnote{In the jargon of the computer programmer, a hacker is someone who strives to solve problems in elegant and ingenious ways.} have been using for decades.
+
+  As hackers, we spend a lot of time on our computers, so it makes sense to make that experience as fluid and frictionless as possible.
+
+  In this class, we'll help you learn how to make the most of tools that productive programmers use.
+\end{frame}
+
+\begin{frame}{Course Overview}
+  \begin{center}
+    \begin{tabularx}{\textwidth}{l|l|X}
+      Week & Date \& Time, Venue  & Topic                               \\ \hline
+      4    & 3/9/19 6.30pm, SR1   & Linux Install Fest, Virtual Machine \\ \hline
+      5    & 10/9/19 6.30pm, SR10 & Shell \& Scripting                  \\ \hline
+      6    & 17/9/19 7pm, SR1     & Command Line Environment            \\ \hline
+      8    & 8/10/19 6.30pm, SR1  & Data Wrangling                      \\ \hline
+      9    & 15/10/19 6.30pm, SR1 & Web Browsers \& Privacy             \\ \hline
+      10   & 22/10/19 6pm, SR1    & Editors (vim \& emacs)              \\ \hline
+      11   & 29/10/19 6.30pm, SR1 & OS Customisation                    \\ \hline
+      12   & 5/11/19 6.30pm, SR1  & \LaTeX                              \\ \hline
+    \end{tabularx}
+  \end{center}
+\end{frame}
+
+\section{Linux}
+\subsection{History}
+\begin{frame}{What is Linux?}
+  可以吃的吗？
+\end{frame}
+
+\section{Conclusion}
+\subsection{}
+\begin{frame}
+  \frametitle{Talk to us!}
+  \begin{itemize}
+    \item \textbf{Feedback form}: \url{https://is.gd/hs2019_hackertools_1}
+    \item \textbf{Upcoming hackerschool}:
+          \begin{itemize}
+            \item Hackertools Part Two
+          \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\end{document}
