@@ -40,7 +40,6 @@
 \setbeamertemplate{itemize items}[square]
 
 
-\usepackage[UTF8]{ctex}
 \usepackage{tabularx}
 \usepackage{menukeys}
 \usepackage{minted}
@@ -134,7 +133,7 @@
 \subsection{Brief Introduction to Linux \& Unix}
 
 \begin{frame}{What is Linux?}
-  可以吃的吗？\pause
+  Can that be eaten? \pause
 
   A Unix-like operating system kernel\only<2->{\footnote{The most fundamental part of an operating system -- it is a bridge between other software running on the computer and the hardware}}.
 
@@ -166,6 +165,14 @@
       \includegraphics[width=\linewidth]{supercomputer}
     \end{column}
   \end{columns}
+\end{frame}
+
+\begin{frame}{Why should I use Linux?}
+  Most development tools are designed around Unix, so the development experience is better!
+
+  Useful skill: most technology companies use Unix.
+
+  If you are a computing student, sooner or later you will end up developing for/on a Unix-like platform
 \end{frame}
 
 \subsection{Virtual Machine: What? Why?}
@@ -404,12 +411,12 @@
 \section{Nifty Tricks with VM}
 \subsection{Force shutdown the VM}
 \begin{frame}{Force Shutdown the VM}
-  You can run unstable software on the VM.
+  You may need to run unstable software on the VM.
 
   If the VM hangs, you can always force shutdown by closing and choosing ``Power off the machine'', and quickly bring up the VM again.
 \end{frame}
 
-\subsection{Saving State}
+\subsection{Saving State \& Snapshot}
 \begin{frame}{Saving machine state}
   You need not shut down the OS to shut down your VM.
 
@@ -418,7 +425,6 @@
   Try closing the VM, and choose ``Save the machine state''
 \end{frame}
 
-\subsection{Snapshot}
 \begin{frame}{What is Snapshot?}
   Captures the state of the VM at one particular time.
 
@@ -478,7 +484,7 @@
 \begin{frame}
   \frametitle{Talk to us!}
   \begin{itemize}
-    \item \textbf{Feedback form}: \url{https://is.gd/hs2019_hackertools_1}
+    \item \textbf{Feedback form}: \url{https://is.gd/2019ht4}
     \item \textbf{Upcoming Hacker Tools}:
 
           Shell \& Scripting, SR10, 10th September 2019, 6.30pm
