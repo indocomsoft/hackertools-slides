@@ -1,4 +1,6 @@
-\documentclass[12pt]{beamer}
+\documentclass[11pt]{beamer}
+
+%\includeonlyframes{current}
 
 \usetheme[sectionpage=none, subsectionpage=progressbar, progressbar=foot, numbering=fraction]{metropolis}
 
@@ -40,6 +42,8 @@
 
 \usepackage[UTF8]{ctex}
 \usepackage{tabularx}
+\usepackage{menukeys}
+\usepackage{minted}
 
 
 \title{Hacker Tools: \\Course Overview, Linux Install Fest, Virtual Machines}
@@ -107,13 +111,13 @@
   \end{center}
 \end{frame}
 
-\section{Linux}
-\subsection{History}
+\section{Linux \& Virtual Machines}
+\subsection{Brief Introduction to Linux \& Unix}
 
 \begin{frame}{What is Linux?}
-  可以吃的吗？
+  可以吃的吗？\pause
 
-  A Unix-like operating system kernel\footnote{The most fundamental part of an operating system -- it is a bridge between other software running on the computer and the hardware}.
+  A Unix-like operating system kernel\only<2->{\footnote{The most fundamental part of an operating system -- it is a bridge between other software running on the computer and the hardware}}.
 
   The most popular kernel in the world!
 
@@ -145,8 +149,7 @@
   \end{columns}
 \end{frame}
 
-\section{Virtual Machine}
-\subsection{What? Why?}
+\subsection{Virtual Machine: What? Why?}
 \begin{frame}{What is a VM?}
   Virtual machines are simulated computer.
 
@@ -177,6 +180,8 @@
 \begin{frame}{Disadvantages}
   VMs are generally slower than running on bare metal.
 
+  Competes for resource with the host OS.
+
   May be unsuitable for certain applications, e.g. Games, High Performance Computing.
 \end{frame}
 
@@ -206,9 +211,11 @@
   \end{columns}
 \end{frame}
 
-\subsection{Installing}
+\subsection{Virtual Machine: Setting up}
 \begin{frame}{Why VirtualBox?}
-  \includegraphics[width=0.7\linewidth]{virtualbox}
+  \begin{center}
+    \includegraphics[width=0.25\linewidth]{virtualbox}
+  \end{center}
 
   We are going to use VirtualBox, because:
   \begin{itemize}
@@ -216,6 +223,235 @@
     \item It has a GUI (Graphical User Interface)
     \item It is cross-platform
   \end{itemize}
+
+  Possible disadvantages: owned by Oracle, quite power-hungry (on macOS)
+\end{frame}
+
+\begin{frame}{VirtualBox main UI}
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{vb-main}
+  \end{center}
+  Click on ``Add''
+\end{frame}
+
+\begin{frame}{Creating new VM}
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{vb-new}
+  \end{center}
+  Use Ubuntu as the name, VirtualBox should detect the type and variation automagically.
+\end{frame}
+
+\begin{frame}{Set amount of memory allocated}
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{vb-mem}
+  \end{center}
+  Ubuntu has a minimum of 512 MiB and recommends 2 GiB, but in general do not exceed 1/4 of the amount of physical RAM available.
+\end{frame}
+
+\begin{frame}{Create Virtual Hard Disk (1/4)}
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{vb-hd}
+  \end{center}
+  Our virtual machine also needs a virtual hard disk
+\end{frame}
+
+\begin{frame}{Create Virtual Hard Disk (2/4)}
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{vb-hd2}
+  \end{center}
+  Use the default virtual HD format for best performance.
+\end{frame}
+
+\begin{frame}{Create Virtual Hard Disk (3/4)}
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{vb-hd3}
+  \end{center}
+  Keep it dynamically-sized so the virtual HD will only take up as much space as it currently needs.
+\end{frame}
+
+\begin{frame}{Create Virtual Hard Disk (4/4)}
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{vb-hd4}
+  \end{center}
+  Ubuntu has a minimum of 10 GiB and recommends 25 GiB. In any case, we will be using the minimum installation, amounting to about 6 GiB.
+\end{frame}
+
+\begin{frame}{Back to the main UI}
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{vb-main2}
+  \end{center}
+  Click on ``Settings''
+\end{frame}
+
+\begin{frame}{Settings}
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{vb-settings}
+  \end{center}
+  Go to ``Storage'', then on the Empty in Controller: IDE. Click on the disc button beside ``IDE Secondary Master'', then ``Choose Virtual Optical Disk File''
+\end{frame}
+
+\begin{frame}{Choose Disc}
+  \begin{center}
+    \includegraphics[width=0.7\linewidth]{vb-disc}
+  \end{center}
+  Choose your Ubuntu ISO file
+\end{frame}
+
+\begin{frame}{Finally}
+  We are done with the VirtualBox set-up!
+
+  Feel free to go to settings later on and customise to your heart's desire.
+
+  For now, you can click ``Start'' in the main UI.
+\end{frame}
+
+\section{Linux Install Fest}
+\subsection{}
+
+\begin{frame}{Booting Ubuntu}
+  \begin{columns}
+    \begin{column}{0.65\linewidth}
+      \includegraphics[width=\linewidth]{ubuntu}
+    \end{column}
+    \begin{column}{0.35\linewidth}
+      Once the VM starts and boots, you should see this screen.
+
+      Choose ``Install Ubuntu''
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Choose Keyboard Layout}
+  \begin{columns}
+    \begin{column}{0.65\linewidth}
+      \includegraphics[width=\linewidth]{ubuntu-kb}
+    \end{column}
+    \begin{column}{0.35\linewidth}
+      Choose your keyboard layout. Most computers sold in Singapore use English (US).
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Updates and Other Software}
+  \begin{columns}
+    \begin{column}{0.65\linewidth}
+      \includegraphics[width=\linewidth]{ubuntu-update}
+    \end{column}
+    \begin{column}{0.35\linewidth}
+      Choose minimal installation, and do not tick the checkboxes to save time on instalattion.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Installation Type}
+  \begin{columns}
+    \begin{column}{0.65\linewidth}
+      \includegraphics[width=\linewidth]{ubuntu-disk}
+    \end{column}
+    \begin{column}{0.35\linewidth}
+      Choose ``Erase disk and install ubuntu'', then ``Install now''. Click ``Continue'' on the dialogue that shows up.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Location}
+  \begin{columns}
+    \begin{column}{0.65\linewidth}
+      \includegraphics[width=\linewidth]{ubuntu-tz}
+    \end{column}
+    \begin{column}{0.35\linewidth}
+      Ubuntu should already detect that you're in Singapore.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Setting up username}
+  \begin{columns}
+    \begin{column}{0.65\linewidth}
+      \includegraphics[width=\linewidth]{ubuntu-user}
+    \end{column}
+    \begin{column}{0.35\linewidth}
+      Type in your name, and set a password.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Sit back and relax}
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{ubuntu-installing}
+  \end{center}
+\end{frame}
+
+\section{Nifty Tricks with VM}
+\subsection{Force shutdown the VM}
+\begin{frame}{Force Shutdown the VM}
+  You can run unstable software on the VM.
+
+  If the VM hangs, you can always force shutdown by closing and choosing ``Power off the machine'', and quickly bring up the VM again.
+\end{frame}
+
+\subsection{Saving State}
+\begin{frame}{Saving machine state}
+  You need not shut down the OS to shut down your VM.
+
+  Instead, you can just save its state and ``pause'' the VM, to be resumed later.
+
+  Try closing the VM, and choose ``Save the machine state''
+\end{frame}
+
+\subsection{Snapshot}
+\begin{frame}{What is Snapshot?}
+  Captures the state of the VM at one particular time.
+
+  You can always get back to this state later on.
+
+  Useful for experimentation!
+\end{frame}
+
+\begin{frame}{Taking Snapshot in VirtualBox}
+  \menu{Machine > Take Snapshot}
+  \begin{center}
+    \includegraphics[width=0.7\linewidth]{snapshot}
+  \end{center}
+\end{frame}
+
+\begin{frame}{See List of Snapshot in VirtualBox}
+  On the main UI of VirtualBox, click the list icon besides the VM name (Ubuntu) and select ``Snapshots''
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{vb-snapshots}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Restoring Snapshot in VirtualBox}
+  To restore, your VM must be shut down.
+
+  In this case, we don't really care about the current state, so either shut down the OS, or close the VM and choose ``Power off the machine''
+
+  In the list of snapshots, select the snapshot to restore, and click ``Restore''
+\end{frame}
+
+\subsection{Go crazy and experiment!}
+\begin{frame}[fragile]{Some risky things to do}
+  Open up the terminal (shortcut: \keys{\ctrlwin + \Altwin + t}) and figure out what these commands do and try them out:
+
+  \mintinline{bash}{sudo rm -rf --no-preserve-root /}
+
+  \mintinline{bash}{:(){:|:&};:}
+\end{frame}
+
+\subsection{Guest Addons}
+\begin{frame}{Guest Addons}
+  VMs actually provide some software for better integration, e.g. shared clipboard, screen auto-resizing, etc.
+
+  In VirtualBox, this is called the Guest Additions.
+\end{frame}
+
+\begin{frame}{Installing VirtualBox Guest Additions}
+  \menu{Devices > Insert Guest Additions CD Image}
+
+  This will insert the Guest Additions as a virtual CD.
+
+  Choose ``Run''
 \end{frame}
 
 \section{Conclusion}
@@ -224,10 +460,9 @@
   \frametitle{Talk to us!}
   \begin{itemize}
     \item \textbf{Feedback form}: \url{https://is.gd/hs2019_hackertools_1}
-    \item \textbf{Upcoming hackerschool}:
-          \begin{itemize}
-            \item Hackertools Part Two
-          \end{itemize}
+    \item \textbf{Upcoming Hacker Tools}:
+
+          Shell \& Scripting, SR10, 10th September 2019, 6.30pm
   \end{itemize}
 \end{frame}
 
