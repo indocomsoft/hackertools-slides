@@ -154,6 +154,7 @@
     \item \mintinline{bash}{rm} to \textbf{r}e\textbf{m}ove files and directories
     \item \mintinline{bash}{cp} to \textbf{c}o\textbf{p}y file
     \item \mintinline{bash}{mv} to \textbf{m}o\textbf{v}e file
+    \item \texttt{bash}{pwd} to \textbf{p}rint \textbf{w}orking \textbf{d}irectory
   \end{itemize}
 \end{frame}
 
@@ -171,6 +172,8 @@
     \item \keys{\ctrlwin + u}: delete from cursor to the start of line
     \item \keys{\ctrlwin + w}: delete from cursor to start of word
   \end{itemize}
+
+  You can find more in documentation for \texttt{readline}
 \end{frame}
 
 \begin{frame}{Command Control Shortcuts}
@@ -503,7 +506,7 @@ dmesg | tail
 \begin{frame}[fragile]{Pipe (2/2)}
   You can chain this even longer!
 
-  \mintinline{bash}{cat /var/log/sys*log | grep Sep 10 | tail}
+  \mintinline{bash}{cat /var/log/sys*log | grep "Sep 10" | tail}
   \begin{itemize}
     \item \mintinline{bash}{cat /var/log/sys*log} prints the system log
     \item This output is fed into \mintinline{bash}{grep Sep 10}, which looks for all entries from today.
