@@ -44,7 +44,7 @@
 
 \title{Hacker Tools: \\Shell \& Scripting}
 \author{Julius Putra Tanu Setiaji}
-\date{10 September 2019}
+\date{10 September 2019 \\ Slides at \url{https://is.gd/2019ht5slides}}
 
 \begin{document}
 
@@ -253,6 +253,8 @@ echo something
   Everything is files and directories. The root directory is \texttt{/}
 
   We use forward slash \texttt{/} instead of backward slash \texttt{\textbackslash}
+
+  Specifically for Linux, there is FHS\footnote{\url{https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard}}
 \end{frame}
 
 \begin{frame}{Important Unix Directories}
@@ -529,6 +531,7 @@ dmesg | tail
     \item \mintinline{bash}{a 2> foo}: \texttt{STDERR} of \texttt{a} goes to the file \texttt{foo}
     \item \mintinline{bash}{a < foo}: \texttt{STDIN} of \texttt{a} is read from the file \texttt{foo}
     \item \mintinline{bash}{a <<< some text}: \texttt{STDIN} of \texttt{a} is read from what comes after \texttt{<<<}
+    \item You can also pipe to \texttt{tee} (look up in \texttt{man} what \texttt{tee} does)
   \end{itemize}
 \end{frame}
 
