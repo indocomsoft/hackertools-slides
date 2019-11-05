@@ -46,7 +46,7 @@
 
 \title{Hacker Tools: \LaTeX{}}
 \author{Julius Putra Tanu Setiaji}
-\date{5 November 2019 \\ Slides at \url{https://is.gd/2019ht6slides} \\ Download data at \url{https://is.gd/2019ht6data}}
+\date{5 November 2019 \\ Slides at \url{https://is.gd/ht_latex_2019_slides}}
 
 \begin{document}
 
@@ -86,13 +86,14 @@
 \end{frame}
 
 \begin{frame}{Required Software}
+  These are preferable, but otherwise you should be to follow along using Overleaf\footnote{\url{https://www.overleaf.com/?r=5e9ffb40&rm=d&rs=b}}
   \begin{itemize}
     \item A \TeX{} distribution (instructions in our publicity channels)
     \item TeXstudio
   \end{itemize}
 \end{frame}
 
-\begin{frame}{What is \LaTeX?}
+\begin{frame}{What is \LaTeX{}?}
   \begin{itemize}
     \item A markup language for document preparation\footnote{Just like HTML (Hyper-Text Markup Language) is a markup language}
     \item Uses plain text\footnote{thus versionable using a VCS like \texttt{git}} in contrast to most WYSIWYG editors
@@ -101,7 +102,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{What is \TeX?}
+\begin{frame}{What is \TeX{}?}
   \begin{itemize}
     \item A typesetting system designed and mostly written by Donald Knuth\footnote{Winner of the Turing Award in 1974 for analysis of algorithms and the design of programming languages} in 1978
     \item Because Knuth was disappointed with the typesetting of the 2nd edition of TAOCP.
@@ -127,7 +128,7 @@
   \begin{itemize}
     \item Reports
     \item Books
-    \item Presentation\footnote{This presentation is written in \LaTeX!}
+    \item Presentation\footnote{This presentation is written in \LaTeX{} using Beamer! \url{https://github.com/indocomsoft/hackertools-slides/blob/master/latex/latex.tex}}
     \item And so much more!
   \end{itemize}
 \end{frame}
@@ -209,6 +210,15 @@ paragraph.
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Packages}
+  \begin{itemize}
+    \item Just like other programming languages, \LaTeX{} has packages as well
+    \item \LaTeX{} also has its own package manager, called \texttt{CTAN}
+    \item Use the command \mintinline{latex}{\usepackage{packagename}} to ``import'' and use a package.
+    \item We will go through some useful packages in the upcoming subsections.
+  \end{itemize}
+\end{frame}
+
 \section{Commands and Environments}
 \subsection{}
 \begin{frame}[fragile]{Back to Our Example}
@@ -271,10 +281,13 @@ Hello world!
     \item Typeset the title using \texttt{maketitle}
   \end{itemize}
   \begin{minted}{latex}
-\begin{document}
-\title{How to Basic: \LaTeX}
+\documentclass{article}
+
+\title{How to Basic: \LaTeX{}}
 \author{Julius Putra Tanu Setiaji}
 \date{5 November 2019}
+
+\begin{document}
 \maketitle
 \end{document}
   \end{minted}
@@ -297,7 +310,7 @@ Hello world!
 \end{frame}
 
 \subsection{Fonts}
-\begin{frame}{Emphasising text}
+\begin{frame}[fragile]{Emphasising text}
   \begin{itemize}
     \item Use the \mintinline{latex}{\emph{text}} command
     \item Typically done by italicising the text.
@@ -309,7 +322,7 @@ Hello world!
   \begin{minted}{latex}
 \textnormal{document font family}
 \emph{Emphasised text}
-\texttt{teletype font family (monospaced font)}
+\texttt{teletype font family (monospaced)}
 \textbf{bold fontface}
 \textsc{Small Capitals}
 \uppercase{uppercase}
@@ -366,12 +379,14 @@ To ``quote'' in LaTeX
     Left justified  & \texttt{flushleft}  & \mintinline{latex}{\raggedright} \\
     Right justified & \texttt{flushright} & \mintinline{latex}{\raggedleft}  \\
     Center          & \texttt{center}     & \mintinline{latex}{\centering}   \\
+    \hline
   \end{tabular}
 \end{frame}
 
 \begin{frame}[fragile]{Paragraph Indentation}
   \begin{itemize}
     \item By default, first paragraph after a heading is not indented, subsequent paragraphs are indented by \mintinline{latex}{\parindent}
+    \item This follows typical Anglo-American publishing convention.
     \item To set this length, in preamble:
           \begin{minted}{latex}
 \setlength{\parindent}{1cm} % Default 15pt
@@ -384,7 +399,7 @@ To ``quote'' in LaTeX
 
 \begin{frame}[fragile]{Adding paragraph skips}
   \begin{itemize}
-    \item To make paragraphs boundary clearn using zero indentation, vertical space between paragraphs is needed.
+    \item To make paragraphs boundary clear using zero indentation, vertical space between paragraphs is needed.
     \item Use the \texttt{parskip} package
   \end{itemize}
 \end{frame}
@@ -427,20 +442,35 @@ including all  s p a c e s!
 \end{frame}
 
 \begin{frame}[fragile]{Environments}
+  \LaTeX{} provides displayed equation environment (\texttt{displaymath}), where the formulae are on a line by themselves.
+
+  Short hand\footnote{DO NOT use \mintinline{latex}{$$...$$}, it is an older \TeX{} syntax that causes problems and is not officially supported by \LaTeX{}}: \mintinline{latex}{\[e^{i \pi} + 1 = 5\]}
+
   To get automatically numbered equations, use the \texttt{equation} environment:
   \begin{minted}{latex}
 \begin{equation}
 e^{i \pi} + 1 = 0
 \end{equation}
   \end{minted}
+\end{frame}
 
-  However, if you want to get an inline formula, there exists a shorthand:
+\begin{frame}[fragile]{Inline vs Displayed Equations}
+  However, if you want to get an inline formula, use the \texttt{math} environment or the shorthand\footnote{There also exists the \LaTeX{} shorthand \mintinline{latex}{\(...\)}}:
   \begin{minted}{latex}
 $e^{i \pi} + 1 = 0$
   \end{minted}
 
   These work on some flavours of Markdown too, e.g. \url{https://hackmd.io}
 \end{frame}
+
+\begin{frame}[fragile]{Maths Symbols}
+  A pretty good list at \url{https://en.wikibooks.org/wiki/LaTeX/Mathematics\#List_of_mathematical_symbols}
+
+  You can also use detexify: \url{http://detexify.kirelabs.org/}
+
+  Or even cooler: \url{https://mathpix.com/}
+\end{frame}
+
 
 \begin{frame}{Powers and indices}
   Use the caret (\^{}) to raise something, and underscore (\_) to lower.
@@ -475,7 +505,7 @@ $\sqrt[n]{1 + x + x^2 + x^3 + \dots + x^n}$
 \begin{frame}[fragile]{Sums and Integrals}
   Use the \mintinline{latex}{\sum} and \mintinline{latex}{\int} for sum and integral respectively, with the limits specified using caret and underscore.
 
-  Use \mintinline{latex}{\limits} if you want the limits specified above and below the symbol
+  Use \mintinline{latex}{\limits} if you want the limits specified above and below the symbol in inline mode, or use displayed equation mode.
 
   \begin{columns}
     \begin{column}{0.8\textwidth}
@@ -547,14 +577,6 @@ $( a ), [ b ], \{ c \}, | d |, \| e \|, \langle f \rangle, \lfloor g \rfloor, \l
   $P(A=2|\frac{A^2}{B}>4)$
 \end{frame}
 
-\begin{frame}[fragile]{Maths Symbols}
-  A pretty good list at \url{https://en.wikibooks.org/wiki/LaTeX/Mathematics\#List_of_mathematical_symbols}
-
-  You can also use detexify: \url{http://detexify.kirelabs.org/}
-
-  Or even cooler: \url{https://mathpix.com/}
-\end{frame}
-
 \begin{frame}{Exercises}
   $\binom{n}{r} = _nC_r = \frac{n!}{r!(n-r)!}$, $_nC_r \times r! = _nP_r$
 
@@ -575,9 +597,14 @@ $( a ), [ b ], \{ c \}, | d |, \| e \|, \langle f \rangle, \lfloor g \rfloor, \l
 \subsection{}
 \begin{frame}
   \frametitle{Talk to us!}
+
+  \begin{center}
+    \includegraphics[width=0.33\textwidth]{feedback}
+  \end{center}
+
   \begin{itemize}
-    \item \textbf{Feedback form}: \url{https://is.gd/2019ht6}
-    \item This is the last in the Hacker Tools series this semester
+    \item \textbf{Feedback form}: \url{https://is.gd/ht_latex_2019}
+    \item Today is the last in the Hacker Tools series this semester, but do join our other events
   \end{itemize}
 \end{frame}
 
