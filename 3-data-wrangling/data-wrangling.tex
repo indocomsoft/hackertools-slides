@@ -46,7 +46,7 @@
 
 \title{Hacker Tools: \\Data Wrangling}
 \author{Julius Putra Tanu Setiaji}
-\date{17 September 2019 \\ Slides at \url{https://is.gd/2019ht6slides} \\ Download data at \url{https://is.gd/2019ht6data}}
+\date{22 September 2019 \\ Slides at \url{https://is.gd/2020ht3} \\ Download data at \url{https://is.gd/2020ht3data}}
 
 \begin{document}
 
@@ -78,7 +78,11 @@
 \begin{frame}{About Me}
   Hi! I'm Julius. My GitHub is \url{https://github.com/indocomsoft}
 
-  A Year 3 Computer Science Undergraduate who loves hacking and building systems.
+  A Year 4 Computer Science Undergraduate who loves hacking and building systems.
+
+  Check out \texttt{fluminus} and \texttt{fluminurs} on my GitHub!
+
+  {\tiny (I'm looking for someone to take over as maintainers after I graduate)}
 
   I also enjoy Space Exploration, Music Theory and History.
 
@@ -88,7 +92,7 @@
 \begin{frame}{Required Software}
   Unix-like environment, either one of these:
   \begin{itemize}
-    \item Linux (you're good if you attended and installed Linux during our Linux Install Fest last week)
+    \item Linux (you're good if you attended and installed Linux during our Linux Install Fest)
     \item macOS\footnote{Open Terminal, and run \mintinline{bash}{xcode-select --install} first}
     \item BSD
     \item Other Unix-like OS'es (Minix, Solaris, AIX, HP-UX, etc.)
@@ -116,7 +120,7 @@
 \begin{frame}[fragile]{Basic Data Wrangling (1/2)}
   Linux:
   \begin{minted}{bash}
-cat /var/log/sys*log | grep -i Sep 17
+cat /var/log/sys*log | grep -i "Sep 22"
   \end{minted}
   \begin{itemize}
     \item This is an example of basic data wrangling: finding all system log entries that mentions Intel
@@ -330,7 +334,6 @@ cat log
 \end{frame}
 
 \begin{frame}[fragile]{How about the most common logins?}
-  We probably want to sort that too and only keep the most common logins
   \begin{minted}{bash}
 | sort -nk1,1 | tail -n3
   \end{minted}
@@ -477,17 +480,11 @@ ls
 \begin{frame}
   \frametitle{Talk to us!}
   \begin{itemize}
-    \item \textbf{Feedback form}: \url{https://is.gd/2019ht6}
+    \item \textbf{Feedback form}: \url{https://tny.im/2020ht3}
     \item \textbf{Upcoming Hacker Tools}:
+
+          Tue, 6th Oct 2020, 6.30pm -- Web browser customisation, online security, and privacy
   \end{itemize}
-  \begin{tabularx}{\textwidth}{l|l|X}
-    \textbf{Week} & \textbf{Date \& Time, Venue} & \textbf{Topic}               \\ \hline
-    8             & 8/10/19 6.30pm, SR1          & Web Browsers \& Privacy      \\ \hline
-    9             & 15/10/19 6.30pm, SR1         & Linux Internals: an Overview \\ \hline
-    10            & 22/10/19 6pm, SR1            & Editors (vim \& emacs)       \\ \hline
-    11            & 29/10/19 6.30pm, SR1         & Introduction to zsh          \\ \hline
-    12            & 5/11/19 6.30pm, SR1          & \LaTeX                       \\ \hline
-  \end{tabularx}
 \end{frame}
 
 \end{document}
